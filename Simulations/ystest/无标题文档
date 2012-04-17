@@ -1,0 +1,72 @@
+[HAHA]
+SN.node[0].xCoor = 10
+SN.node[0].yCoor = 10
+SN.node[0].zCoor = 10
+
+
+SN.node[1].xCoor = 8
+SN.node[1].yCoor = 10
+SN.node[1].zCoor = 11
+SN.node[1].MobilityManager.updateInterval = 100
+SN.node[1].MobilityManager.xCoorDestination = 12
+SN.node[1].MobilityManager.yCoorDestination = 10
+SN.node[1].MobilityManager.zCoorDestination = 11
+SN.node[1].MobilityManager.speed = 2
+SN.node[1].MobilityManager.xCoorDestinationmid = 10
+SN.node[1].MobilityManager.yCoorDestinationmid = 8
+SN.node[1].MobilityManager.zCoorDestinationmid = 11
+
+
+
+SN.node[2].xCoor = 12
+SN.node[2].yCoor = 10
+SN.node[2].zCoor = 9
+SN.node[2].MobilityManager.updateInterval = 100
+SN.node[2].MobilityManager.xCoorDestination = 8
+SN.node[2].MobilityManager.yCoorDestination = 10
+SN.node[2].MobilityManager.zCoorDestination = 9
+SN.node[2].MobilityManager.speed = 2
+SN.node[2].MobilityManager.xCoorDestinationmid = 10
+SN.node[2].MobilityManager.yCoorDestinationmid = 8
+SN.node[2].MobilityManager.zCoorDestinationmid = 9
+
+SN.node[3].xCoor = 9
+SN.node[3].yCoor = 6
+SN.node[3].zCoor = 11
+SN.node[3].MobilityManager.updateInterval = 100
+SN.node[3].MobilityManager.xCoorDestination = 11
+SN.node[3].MobilityManager.yCoorDestination = 6
+SN.node[3].MobilityManager.zCoorDestination = 11
+SN.node[3].MobilityManager.speed = 2
+SN.node[3].MobilityManager.xCoorDestinationmid = 10
+SN.node[3].MobilityManager.yCoorDestinationmid = 5
+SN.node[3].MobilityManager.zCoorDestinationmid = 11
+
+SN.node[4].xCoor = 12
+SN.node[4].yCoor = 3
+SN.node[4].zCoor = 11
+SN.node[4].MobilityManager.updateInterval = 100
+SN.node[4].MobilityManager.xCoorDestination = 8
+SN.node[4].MobilityManager.yCoorDestination = 5
+SN.node[4].MobilityManager.zCoorDestination = 11
+SN.node[4].MobilityManager.speed = 2
+SN.node[4].MobilityManager.xCoorDestinationmid = 10
+SN.node[4].MobilityManager.yCoorDestinationmid = 2
+SN.node[4].MobilityManager.zCoorDestinationmid = 11
+
+SN.node[5].xCoor = 8
+SN.node[5].yCoor = 5
+SN.node[5].zCoor = 9
+SN.node[5].MobilityManager.updateInterval = 100
+SN.node[5].MobilityManager.xCoorDestination = 12
+SN.node[5].MobilityManager.yCoorDestination = 3
+SN.node[5].MobilityManager.zCoorDestination = 9
+SN.node[5].MobilityManager.speed = 2
+SN.node[5].MobilityManager.xCoorDestinationmid = 10
+SN.node[5].MobilityManager.yCoorDestinationmid = 2
+SN.node[5].MobilityManager.zCoorDestinationmid = 9
+
+SN.node[1..5].MobilityManagerName = "traingleMobilityManager"
+
+*/
+

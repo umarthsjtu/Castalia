@@ -1,0 +1,11 @@
+package routingControl;
+
+simple RoutingControl {
+    parameters:
+        int i = default(0);
+	bool collectTraceInfo = default (true);
+    gates:
+        output toNode[];
+	input fromNode @ directIn;
+
+}

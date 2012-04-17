@@ -1,0 +1,9 @@
+cplusplus {{
+#include <list>
+typedef std::list<int> IntList;
+}}
+class noncobject IntList;
+message routingcontrolmessage {
+IntList neighbor;
+};
+	

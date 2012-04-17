@@ -1,0 +1,100 @@
+/*******************************************************************************
+ *  Copyright: National ICT Australia,  2007 - 2011                            *
+ *  Developed at the ATP lab, Networked Systems research theme                 *
+ *  Author(s): Athanassios Boulis, Yuriy Tselishchev                           *
+ *  This file is distributed under the terms in the attached LICENSE file.     *
+ *  If you do not find this file, copies can be found by writing to:           *
+ *                                                                             *
+ *      NICTA, Locked Bag 9013, Alexandria, NSW 1435, Australia                *
+ *      Attention:  License Inquiry.                                           *
+ *                                                                             *
+ *******************************************************************************/
+
+#include "Flooding.h"
+
+Define_Module(Flooding);
+
+/* Application layer sends a packet together with a dest network layer address.
+ * Network layer is responsible to route that packet by selecting an appropriate
+ * MAC address. With BypassRouting we do not perform any routing function. We
+ * just encapsulate the app packet and translate the net address to a MAC address
+ * (e.g. "3" becomes 3, or a BROADCAST_NETWORK_ADDRESS becomes BROADCAST_MAC_ADDRESS)
+ * If the destination is a 1-hop neighbor it will receive the packet.
+ */
+void Flooding::fromApplicationLayer(cPacket * pkt, const char *destination)
+{
+	FloodingPacket *netPacket = new FloodingPacket("Flooding packet", NETWORK_LAYER_PACKET);
+	netPacket->setSource(SELF_NETWORK_ADDRESS);
+	netPacket->setDestination(destination);
+        netPacket->getNetMacInfoExchange().lastHop = resolveNetworkAddress(destination);
+	netPacket->setNumhop(4);
+	encapsulatePacket(netPacket, pkt);
+	toMacLayer(netPacket, BROADCAST_MAC_ADDRESS );
+	cModule *haha = getParentModule()->getParentModule()->getParentModule()->getSubmodule("routingControl");
+	cMessage *bb = new cMessage("test", 100);
+	sendDirect(bb,haha,"fromNode");
+}
+
+
+/* MAC layer sends a packet together with the source MAC address and other info.
+ * With BypassMAC we just filter the packet by the NET address. If this
+ * node is the right destination decapsulatePacket will extract the APP packet.
+ * If not, there is no need to do anything. The whole net packet (including
+ * the encapsulated apppacket will be deleted by the virtual routing code
+ */
+void Flooding::fromMacLayer(cPacket * pkt, int srcMacAddress, double rssi, double lqi)
+{
+	FloodingPacket *netPacket = dynamic_cast <FloodingPacket*>(pkt);
+	if (netPacket) {
+		string destination(netPacket->getDestination());
+		string source(netPacket->getSource());
+		int src = resolveNetworkAddress(netPacket->getSource());
+		unsigned int sn = netPacket->getSequenceNumber();
+		 
+		if(source.compare(SELF_NETWORK_ADDRESS) == 0){
+			trace()<<"丢掉自己的发送的 回传回来的包";
+			trace()<<"最终的跳数为"<<5-netPacket->getNumhop();
+		}else{
+			if (destination.compare(SELF_NETWORK_ADDRESS) == 0 ||
+		    		destination.compare(BROADCAST_NETWORK_ADDRESS) == 0)
+			{
+				if(!isNotDuplicatePacket(netPacket))
+				{
+					trace()<<"重复的包包！！！！！"<<source<<"to"<<destination<<"	#:"<<netPacket->getSequenceNumber();
+					trace()<<"最终的跳数为"<<5-netPacket->getNumhop();
+				}
+				else
+				{	
+					toApplicationLayer(decapsulatePacket(pkt));
+					trace()<<"收到"<<source<<"to"<<destination<<"	#:"<<netPacket->getSequenceNumber();
+					trace()<<"最终的跳数为"<<5-netPacket->getNumhop();
+					pktHistory[src].push_front(sn);	
+				}
+			}
+		else
+			{
+			
+                        trace()<<"跳数等于"<<netPacket->getNumhop();
+		        if(netPacket->getNumhop()>0)	
+				{
+				FloodingPacket *netPkt = new FloodingPacket("Flooding packet", NETWORK_LAYER_PACKET);
+				netPkt->setDestination(netPacket->getDestination());
+				netPacket->getNetMacInfoExchange().lastHop =resolveNetworkAddress( netPacket->getDestination());
+				encapsulatePacket(netPkt, decapsulatePacket(pkt));
+				netPkt->setSequenceNumber(currentSequenceNumber--);
+				netPkt->setSequenceNumber(sn);
+				netPkt->setSource(netPacket->getSource());
+				netPkt->setNumhop(netPacket->getNumhop()-1);
+				trace()<<"转发包：源地址"<<netPkt->getSource();
+				toMacLayer(netPkt, BROADCAST_MAC_ADDRESS);
+				}
+			else
+				{
+					trace()<<"丢掉从"<<netPacket->getSource()<<"到"<<netPacket->getDestination()<<"的包";
+					trace()<<"最终的跳数为"<<5-netPacket->getNumhop();
+				}
+			}
+			}
+    			}
+}
+

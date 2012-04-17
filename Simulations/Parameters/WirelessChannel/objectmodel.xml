@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<location name="CUBE" ID="1" numvertex="8" objectpathLossExponent="3" objectPLd0="55" objectd0="1.0">
+		<vertexParameters positionX="2.0" positionY="2.0" positionZ= "1.00"  />
+		<vertexParameters positionX="8.0" positionY="2.0" positionZ= "1.00"  />
+		<vertexParameters positionX="8.0" positionY="6.0" positionZ= "1.00"  />
+		<vertexParameters positionX="2.0" positionY="6.0" positionZ= "1.00"  />
+		<vertexParameters positionX="2.0" positionY="2.0" positionZ= "3.00"  />
+		<vertexParameters positionX="8.0" positionY="2.0" positionZ= "3.00"  />
+		<vertexParameters positionX="8.0" positionY="6.0" positionZ= "3.00"  />
+		<vertexParameters positionX="2.0" positionY="6.0" positionZ= "3.00"  />
+	</location>
+
+</root>
+
+
+

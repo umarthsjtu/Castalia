@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<node name="HEAD" nodeID="0">
+		<nodeParameters time="00" positionX="1.0" positionY="1.0" positionZ= "1.00" phi="01" theta="03" gamma="02" acceleration="15" />
+		<nodeParameters time="01" positionX="200.0" positionY="230.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="02" positionX="230.0" positionY="250.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="25" />
+		<nodeParameters time="03" positionX="170.0" positionY="250.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="25" />
+		<nodeParameters time="04" positionX="200.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="05" positionX="230.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="40" />
+		<nodeParameters time="06" positionX="170.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="40" />
+		<nodeParameters time="07" positionX="220.0" positionY="330.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="20" />
+		<nodeParameters time="08" positionX="180.0" positionY="330.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="20" />
+		<nodeParameters time="09" positionX="225.0" positionY="380.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="70" />
+		<nodeParameters time="10" positionX="175.0" positionY="380.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="70" />
+		<nodeParameters time="11" positionX="195.0" positionY="260.0" positionZ= "70.000" phi="00" theta="00" gamma="00" acceleration="00" />
+	</node>
+	
+	<node name="SHOULDER" nodeID="1">
+		<nodeParameters time="00" positionX="2.0" positionY="2.0" positionZ= "2.00" phi="00" theta="00" gamma="00" acceleration="15" />
+		<nodeParameters time="01" positionX="380.0" positionY="340.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="02" positionX="350.0" positionY="340.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="03" positionX="310.0" positionY="360.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="04" positionX="310.0" positionY="320.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="05" positionX="300.0" positionY="340.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="06" positionX="300.0" positionY="360.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="07" positionX="300.0" positionY="310.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="08" positionX="250.0" positionY="330.5" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="09" positionX="250.0" positionY="320.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="10" positionX="200.0" positionY="355.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="11" positionX="200.0" positionY="320.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="12" positionX="320.0" positionY="330.0" positionZ= "70.000" phi="00" theta="00" gamma="00" acceleration="00" />
+	</node>
+	
+	<node name="KNEE" nodeID="2">
+		<nodeParameters time="00" positionX="3.0" positionY="3.0" positionZ= "3.00" phi="00" theta="00" gamma="00" acceleration="15" />
+		<nodeParameters time="01" positionX="200.0" positionY="230.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="02" positionX="230.0" positionY="250.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="25" />
+		<nodeParameters time="03" positionX="170.0" positionY="250.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="25" />
+		<nodeParameters time="04" positionX="200.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="00" />
+		<nodeParameters time="05" positionX="230.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="40" />
+		<nodeParameters time="06" positionX="170.0" positionY="280.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="40" />
+		<nodeParameters time="07" positionX="220.0" positionY="330.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="20" />
+		<nodeParameters time="08" positionX="180.0" positionY="330.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="20" />
+		<nodeParameters time="09" positionX="225.0" positionY="380.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="70" />
+		<nodeParameters time="10" positionX="175.0" positionY="380.0" positionZ= "100.00" phi="00" theta="00" gamma="00" acceleration="70" />
+		<nodeParameters time="11" positionX="195.0" positionY="260.0" positionZ= "70.000" phi="00" theta="00" gamma="00" acceleration="00" />
+	</node>
+</root>
