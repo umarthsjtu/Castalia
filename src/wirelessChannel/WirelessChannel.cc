@@ -316,16 +316,21 @@ void WirelessChannel::initialize(int stage)
 				dist = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
 				dist1 = (objectsize/tempmax)*dist;    //身体部分
 				dist2 = dist - dist1;		//空气部分
-			        PLd = 0;
-/*
-				if (dist < d0/10.0) {
+			       
+			    PLd = 0;
+				if (dist2 < d0/10.0 && dist1 < objectd0/10.0) {
 					PLd = 0;
 					bidirectionalPathLossJitter = 0;
-				}else{ 
-                                	if(dist1 != 0.0)
-						PLd = PLd0 + 10.0 * pathLossExponent * log10(dist2 / d0) + normal(0, sigma);
-					PLd = PLd + objectPLd0 + 10.0 * objectpathLossExponent * log10(dist1 / objectd0) + normal(0,sigma);	
-					bidirectionalPathLossJitter = 0;//normal(0, bidirectionalSigma) / 2;
+				}else if(dist1 < objectd0/10.0){
+					PLd = PLd0 + 10.0 * pathLossExponent * log10(dist2 / d0) + normal(0, sigma);
+					bidirectionalPathLossJitter = normal(0, bidirectionalSigma) / 2;
+				}else if(dist2 < d0/10.0){
+					PLd = objectPLd0 + 10.0 * objectpathLossExponent * log10(dist1 / objectd0) + normal(0,sigma);
+					bidirectionalPathLossJitter = normal(0, bidirectionalSigma) / 2;
+				}else{
+					PLd = PLd0 + 10.0 * pathLossExponent * log10(dist2 / d0) + normal(0, sigma)
+					      +objectPLd0 + 10.0 * objectpathLossExponent * log10(dist1 / objectd0);
+					bidirectionalPathLossJitter = normal(0, bidirectionalSigma) / 2;
 				}
 				
 				if (maxTxPower - PLd - bidirectionalPathLossJitter >= signalDeliveryThreshold) {
@@ -337,7 +342,6 @@ void WirelessChannel::initialize(int stage)
 					pathLoss[j].push_front(new PathLossElement(i,PLd - bidirectionalPathLossJitter));
 					totalElements++;	//keep track of pathLoss size for reporting purposes
 				}
-*/
 	                        
 			}
 		}
